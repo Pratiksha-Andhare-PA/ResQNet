@@ -1,18 +1,33 @@
 const AWS = require("aws-sdk");
-const dynamo = new AWS.DynamoDB.DocumentClient({ region: "ap-south-1" }); 
+const dynamo = new AWS.DynamoDB.DocumentClient({ region: "ap-south-1" });
 const TABLE = process.env.EMERGENCY_TABLE;
-console.log("Using table:", TABLE);
 
 exports.createEmergency = async (userId, data) => {
+  console.log("PARSED BODY:", data); // 🔥 DEBUG
+
   const emergencyId = `emergency_${Date.now()}`;
+
   const item = {
-    userId,        // Partition Key
-    emergencyId,   // Sort Key
-    location: data.location,
-    severity: data.severity,
-    symptoms: data.symptoms,
+    userId,
+    emergencyId,
     createdAt: new Date().toISOString(),
+
+    // ✅ SAFE MAPPING
+    location: data.location || null,
+    symptoms: data.symptoms || [],
+
+    // ✅ ADD ALL FIELDS YOU SEND FROM APP
+    patientType: data.patientType || null,
+    ageGroup: data.ageGroup || null,
+    conscious: data.conscious ?? null,
+    breathing: data.breathing ?? null,
+    ambulancePreference: data.ambulancePreference || null,
+
+    // optional (if you use later)
+    severity: data.severity || null,
   };
+
+  console.log("ITEM TO SAVE:", item); // 🔥 DEBUG
 
   await dynamo.put({
     TableName: TABLE,
@@ -20,13 +35,4 @@ exports.createEmergency = async (userId, data) => {
   }).promise();
 
   return item;
-};
-
-exports.getEmergencyById = async (userId, emergencyId) => {
-  const res = await dynamo.get({
-    TableName: TABLE,
-    Key: { userId, emergencyId }, // both PK + SK
-  }).promise();
-
-  return res.Item;
 };
