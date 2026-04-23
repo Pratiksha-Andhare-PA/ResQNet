@@ -12,11 +12,8 @@ exports.createEmergency = async (userId, data) => {
     emergencyId,
     createdAt: new Date().toISOString(),
 
-    // ✅ SAFE MAPPING
     location: data.location || null,
     symptoms: data.symptoms || [],
-
-    // ✅ ADD ALL FIELDS YOU SEND FROM APP
     patientType: data.patientType || null,
     ageGroup: data.ageGroup || null,
     conscious: data.conscious ?? null,
