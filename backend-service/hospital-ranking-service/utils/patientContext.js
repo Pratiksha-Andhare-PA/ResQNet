@@ -22,7 +22,8 @@ function buildPatientContext(user, emergency) {
     ageGroup,
     medicalConditions: user.medical_conditions,
     allergies: user.allergies,
-    requiredSpecialty
+    requiredSpecialty,
+    ambulancePreference: emergency.ambulancePreference
   };
 }
 

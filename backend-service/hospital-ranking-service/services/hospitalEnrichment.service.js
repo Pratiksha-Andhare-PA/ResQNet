@@ -32,7 +32,7 @@ function enrichHospitals(hospitals) {
 
     ageGroupSupport: ["child","adult","elderly"],
 
-    rating: (Math.random()*5).toFixed(1)
+    rating: Number((Math.random() * 5).toFixed(1))
 
   }));
 }
