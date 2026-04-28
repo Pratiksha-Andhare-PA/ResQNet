@@ -2,14 +2,17 @@ function resolveSpecialty(symptoms = []) {
 
   const map = {
     "chest pain": "cardiac",
-    "stroke": "neuro",
-    "fracture": "trauma",
+    "stroke signs": "neuro",
+    "accident": "trauma",
     "seizure": "neuro",
-    "head injury": "trauma"
+    "head injury": "trauma",
+    "breathing problem": "pulmonary"
   };
 
   for (let s of symptoms) {
-    if (map[s]) return map[s];
+    const key = s.toLowerCase();
+
+    if (map[key]) return map[key];
   }
 
   return "general";

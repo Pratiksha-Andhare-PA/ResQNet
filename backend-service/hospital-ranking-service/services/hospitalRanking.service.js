@@ -1,10 +1,9 @@
 const { calculateDistance } = require("../utils/distance");
+const computeScore = require("../utils/scoring");
 
 function rankHospitals(hospitals, patientContext) {
 
-  if (!hospitals || hospitals.length === 0) {
-    return [];
-  }
+  if (!hospitals || hospitals.length === 0) return [];
 
   const ranked = hospitals.map((hospital) => {
 
@@ -15,41 +14,16 @@ function rankHospitals(hospitals, patientContext) {
       hospital.location.lng
     );
 
-    const specializationScore =
-      hospital.specializations &&
-      hospital.specializations.includes(patientContext.requiredSpecialty)
-        ? 1
-        : 0;
-
-    const icuScore = hospital.icuAvailable ? 1 : 0;
-
-    const bedScore = Math.min((hospital.availableBeds || 0) / 50, 1);
-
-    const ambulanceScore = Math.min((hospital.ambulancesAvailable || 0) / 5, 1);
-
-    const ratingScore = (hospital.rating || 0) / 5;
-
-    const ageScore =
-      hospital.ageGroupSupport &&
-      hospital.ageGroupSupport.includes(patientContext.ageGroup)
-        ? 1
-        : 0.5;
-
-    const distanceScore = 1 / (distance + 1);
-
-    const score =
-      distanceScore * 0.35 +
-      specializationScore * 0.20 +
-      icuScore * 0.15 +
-      bedScore * 0.10 +
-      ambulanceScore * 0.10 +
-      ratingScore * 0.05 +
-      ageScore * 0.05;
+    const score = computeScore(
+      hospital,
+      patientContext,
+      distance
+    );
 
     return {
       ...hospital,
       distance: Number(distance.toFixed(2)),
-      score: Number(score.toFixed(3))
+      score: Number((score || 0).toFixed(3))
     };
   });
 
