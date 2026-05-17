@@ -1,9 +1,4 @@
-function randomBool(prob = 0.5) {
-  return Math.random() < prob;
-}
-
-function randomInt(min, max) {
-  return Math.floor(Math.random()*(max-min+1))+min;
+function seededNumber(str) {
 }
 
 const specializations = [
@@ -11,32 +6,57 @@ const specializations = [
   "cardiac",
   "neuro",
   "pediatric",
-  "general"
+  "general",
 ];
 
-function enrichHospitals(hospitals) {
+export function enrichHospitals(
+  hospitals
+) {
+  return hospitals.map((h) => {
+    const seed = seededNumber(
+      h.hospitalId || h.name
+    );
 
-  return hospitals.map(h => ({
+    const icuAvailable =
+      seed % 2 === 0;
 
-    ...h,
+    const availableBeds =
+      (seed % 45) + 5;
 
-    icuAvailable: randomBool(0.7),
+    const ambulancesAvailable =
+      seed % 5;
 
-    availableBeds: randomInt(0,50),
+    const rating = (
+      (seed % 15) / 10 + 3.5
+    ).toFixed(1);
 
-    ambulancesAvailable: randomInt(0,5),
+    const shuffled = [
+      ...specializations,
+    ].sort(
+      (a, b) =>
+        ((seed + a.length) % 7) -
+        ((seed + b.length) % 7)
+    );
 
-    specializations:
-      specializations.sort(()=>0.5-Math.random())
-      .slice(0,2),
+    return {
+      ...h,
 
-    ageGroupSupport: ["child","adult","elderly"],
+      icuAvailable,
 
-    rating: (Math.random()*5).toFixed(1)
+      availableBeds,
 
-  }));
+      ambulancesAvailable,
+
+      rating: Number(rating),
+
+      specializations:
+        shuffled.slice(0, 2),
+
+      ageGroupSupport: [
+        "child",
+        "adult",
+        "elderly",
+      ],
+    };
+  });
 }
-
-module.exports = {
-  enrichHospitals
-};

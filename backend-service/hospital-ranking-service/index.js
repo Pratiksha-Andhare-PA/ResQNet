@@ -1,95 +1,183 @@
-const { getEmergency } = require("./repositories/emergency.repository");
-const { getUser } = require("./repositories/user.repository");
+import { getEmergency } from "./repositories/emergency.repository.js";
 
-const { buildPatientContext } = require("./utils/patientContext");
+import { getUser } from "./repositories/user.repository.js";
 
-const { fetchNearbyHospitals } = require("./services/hospitalFetcher.service");
-const { enrichHospitals } = require("./services/hospitalEnrichment.service");
-const { rankHospitals } = require("./services/hospitalRanking.service");
+import { buildPatientContext } from "./utils/patientContext.js";
 
-exports.handler = async (event) => {
+import { fetchNearbyHospitals } from "./services/hospitalFetcher.service.js";
+
+import { enrichHospitals } from "./services/hospitalEnrichment.service.js";
+
+import { rankHospitals } from "./services/hospitalRanking.service.js";
+
+export const handler = async (event) => {
   try {
 
-    const emergencyId = event.queryStringParameters?.emergencyId;
+    const userId =
+      event.requestContext
+        ?.authorizer
+        ?.jwt
+        ?.claims
+        ?.sub;
+
+    if (!userId) {
+      return {
+        statusCode: 401,
+
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+
+        body: JSON.stringify({
+          error: "Unauthorized",
+        }),
+      };
+    }
+
+    const emergencyId =
+      event.queryStringParameters?.emergencyId;
 
     if (!emergencyId) {
       return {
         statusCode: 400,
+
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+
         body: JSON.stringify({
-          error: "emergencyId is required"
-        })
+          error: "emergencyId is required",
+        }),
       };
     }
 
     // Fetch emergency
-    const emergency = await getEmergency(emergencyId);
+    const emergency =
+      await getEmergency(emergencyId);
 
     if (!emergency) {
       return {
         statusCode: 404,
+
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+
         body: JSON.stringify({
-          error: "Emergency not found"
-        })
+          error: "Emergency not found",
+        }),
+      };
+    }
+
+    // Authorization check
+    if (emergency.userId !== userId) {
+      return {
+        statusCode: 403,
+
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+
+        body: JSON.stringify({
+          error: "Forbidden",
+        }),
       };
     }
 
     // Fetch user
-    const user = await getUser(emergency.userId);
+    const user =
+      await getUser(emergency.userId);
 
     if (!user) {
       return {
         statusCode: 404,
+
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+
         body: JSON.stringify({
-          error: "User profile not found"
-        })
+          error: "User profile not found",
+        }),
       };
     }
 
     // Build patient context
-    const patientContext = buildPatientContext(user, emergency);
+    const patientContext =
+      buildPatientContext(user, emergency);
 
     // Fetch hospitals
     let hospitals = [];
 
     try {
-      hospitals = await fetchNearbyHospitals(
-        patientContext.location.lat,
-        patientContext.location.lng
-      );
+
+      hospitals =
+        await fetchNearbyHospitals(
+          patientContext.location.lat,
+          patientContext.location.lng
+        );
+
     } catch (err) {
-      console.error("Hospital fetch failed:", err);
+
+      console.error(
+        "Hospital fetch failed:",
+        err
+      );
+
     }
 
-    // Fallback hospitals if API fails
+    // Fallback hospitals
     if (!hospitals || hospitals.length === 0) {
 
-      console.log("Using fallback hospitals");
+      console.log(
+        "Using fallback hospitals"
+      );
 
       hospitals = [
         {
           hospitalId: "fallback_1",
-          name: "City General Hospital",
+
+          name:
+            "City General Hospital",
+
           location: {
-            lat: patientContext.location.lat + 0.01,
-            lng: patientContext.location.lng + 0.01
-          }
+            lat:
+              patientContext.location.lat + 0.01,
+
+            lng:
+              patientContext.location.lng + 0.01,
+          },
         },
+
         {
           hospitalId: "fallback_2",
-          name: "Metro Care Hospital",
+
+          name:
+            "Metro Care Hospital",
+
           location: {
-            lat: patientContext.location.lat + 0.02,
-            lng: patientContext.location.lng - 0.01
-          }
+            lat:
+              patientContext.location.lat + 0.02,
+
+            lng:
+              patientContext.location.lng - 0.01,
+          },
         },
+
         {
           hospitalId: "fallback_3",
-          name: "Community Health Center",
+
+          name:
+            "Community Health Center",
+
           location: {
-            lat: patientContext.location.lat - 0.015,
-            lng: patientContext.location.lng + 0.005
-          }
-        }
+            lat:
+              patientContext.location.lat - 0.015,
+
+            lng:
+              patientContext.location.lng + 0.005,
+          },
+        },
       ];
     }
 
@@ -97,35 +185,79 @@ exports.handler = async (event) => {
     let enrichedHospitals;
 
     try {
-      enrichedHospitals = enrichHospitals(hospitals);
+
+      enrichedHospitals =
+        enrichHospitals(hospitals);
+
     } catch (err) {
-      console.log("Enrichment failed fallback", err);
+
+      console.log(
+        "Enrichment failed fallback",
+        err
+      );
+
       enrichedHospitals = hospitals;
     }
 
     // Rank hospitals
-    const rankedHospitals = rankHospitals(
-      enrichedHospitals,
-      patientContext
-    );
+    const rankedHospitals =
+      rankHospitals(
+        enrichedHospitals,
+        patientContext
+      );
 
     return {
       statusCode: 200,
+
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type":
+          "application/json",
+
+        "Access-Control-Allow-Origin":
+          "*",
       },
-      body: JSON.stringify(rankedHospitals)
+
+      body: JSON.stringify({
+        emergency: {
+          severity:
+            emergency.severity,
+
+          severityScore:
+            emergency.severityScore,
+
+          possibleCondition:
+            emergency.possibleCondition,
+
+          recommendedAction:
+            emergency.recommendedAction,
+
+          aiProcessed:
+            emergency.aiProcessed,
+        },
+
+        hospitals: rankedHospitals,
+      }),
     };
 
   } catch (error) {
 
-    console.error("Lambda error", error);
+    console.error(
+      "Lambda error",
+      error
+    );
 
     return {
       statusCode: 500,
+
+      headers: {
+        "Access-Control-Allow-Origin":
+          "*",
+      },
+
       body: JSON.stringify({
-        error: "Internal Server Error"
-      })
+        error:
+          "Internal Server Error",
+      }),
     };
   }
 };

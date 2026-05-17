@@ -1,23 +1,36 @@
-const AWS = require("aws-sdk");
+import {
+  DynamoDBClient,
+} from "@aws-sdk/client-dynamodb";
 
-const dynamo = new AWS.DynamoDB.DocumentClient();
+import {
+  DynamoDBDocumentClient,
+  GetCommand,
+} from "@aws-sdk/lib-dynamodb";
 
-const TABLE_NAME = process.env.USER_TABLE;
+const client = new DynamoDBClient({
+  region: "ap-south-1",
+});
 
-async function getUser(userId) {
+const dynamo =
+  DynamoDBDocumentClient.from(client);
 
+const TABLE_NAME =
+  process.env.USER_TABLE;
+
+export async function getUser(
+  userId
+) {
   const params = {
     TableName: TABLE_NAME,
+
     Key: {
-      userId
-    }
+      userId,
+    },
   };
 
-  const result = await dynamo.get(params).promise();
+  const result = await dynamo.send(
+    new GetCommand(params)
+  );
 
   return result.Item;
 }
-
-module.exports = {
-  getUser
-};
