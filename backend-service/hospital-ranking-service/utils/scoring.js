@@ -1,54 +1,55 @@
-const weights = require("../config/rankingWeights");
-const analyzeEmergency = require("./emergencyAnalysis");
+import rankingWeights from "../config/rankingWeights.js";
 
-function normalizeDistance(d) {
-  return 1 - Math.min(d/20,1);
+export function normalizeDistance(d) {
+  return 1 - Math.min(d / 20, 1);
 }
 
-function computeScore(h, context, distance) {
+export default function computeScore(
+  h,
+  context,
+  distance
+) {
+  const weights =
+    rankingWeights[
+      context.severity
+    ] || rankingWeights.MEDIUM;
 
   const analysis = analyzeEmergency(context);
 
-  let score = 0;
+  const specialty =
+    h.specializations &&
+    h.specializations.includes(
+      context.requiredSpecialty
+    )
+      ? 1
+      : 0;
 
-  // 🚨 Severity
-  if (analysis.severity === "HIGH") score += 40;
-  if (analysis.severity === "MEDIUM") score += 20;
+  const ageCompat =
+    h.ageGroupSupport &&
+    h.ageGroupSupport.includes(
+      context.ageGroup
+    )
+      ? 1
+      : 0;
 
-  // 🚑 Ambulance priority (CRITICAL FIX)
-  if (
-    context.ambulancePreference === "ambulance" &&
-    h.ambulancesAvailable > 0
-  ) {
-    score += 30;
-  }
+  const score =
+    distanceScore *
+      weights.distance +
+    specialty *
+      weights.specialty +
+    (h.icuAvailable ? 1 : 0) *
+      weights.icu +
+    ((h.availableBeds || 0) /
+      50) *
+      weights.beds +
+    ((h.ambulancesAvailable ||
+      0) /
+      5) *
+      weights.ambulances +
+    ((h.rating || 0) / 5) *
+      weights.rating +
+    ageCompat *
+      weights.ageCompatibility;
 
-  // 🏥 ICU priority
-  if (analysis.needsICU && h.icuAvailable) {
-    score += 25;
-  }
-
-  // 🧠 Speciality
-  if (h.specializations.includes(context.requiredSpecialty)) {
-    score += 20;
-  }
-
-  // 👶 Age compatibility
-  if (h.ageGroupSupport.includes(context.ageGroup)) {
-    score += 10;
-  }
-
-  // 📍 Distance (reduced dominance)
-  score += normalizeDistance(distance) * 20;
-
-  // ⭐ Rating
-  score += (h.rating || 0);
-
-  // 🛏 Beds
-  score += Math.min((h.availableBeds || 0) / 10, 5);
-
-  return score;
-
+  return Number(score.toFixed(3));
 }
-
-module.exports = computeScore;

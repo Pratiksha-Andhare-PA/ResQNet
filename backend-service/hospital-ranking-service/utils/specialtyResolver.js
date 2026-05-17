@@ -1,21 +1,19 @@
-function resolveSpecialty(symptoms = []) {
-
+export default function resolveSpecialty(
+  symptoms = []
+) {
   const map = {
     "chest pain": "cardiac",
-    "stroke signs": "neuro",
-    "accident": "trauma",
-    "seizure": "neuro",
+    stroke: "neuro",
+    fracture: "trauma",
+    seizure: "neuro",
     "head injury": "trauma",
-    "breathing problem": "pulmonary"
   };
 
-  for (let s of symptoms) {
-    const key = s.toLowerCase();
-
-    if (map[key]) return map[key];
+  for (const s of symptoms) {
+    if (map[s]) {
+      return map[s];
+    }
   }
 
   return "general";
 }
-
-module.exports = resolveSpecialty;
