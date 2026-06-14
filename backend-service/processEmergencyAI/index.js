@@ -19,6 +19,8 @@ export const handler = async (
     JSON.stringify(event)
   );
 
+  const startTime = Date.now();
+
   try {
     const emergencyId =
       event.emergencyId;
@@ -85,6 +87,32 @@ export const handler = async (
       ReturnValues: "UPDATED_NEW",
     }).promise();
 
+    const duration =
+      Date.now() - startTime;
+
+    console.log(
+      JSON.stringify({
+        metric: "ai_processed",
+        emergencyId,
+        severity:
+          aiResult.severity,
+        duration,
+      })
+    );
+
+    if (
+      aiResult.severity ===
+      "CRITICAL"
+    ) {
+      console.log(
+        JSON.stringify({
+          metric:
+            "critical_emergency",
+          emergencyId,
+        })
+      );
+    }
+
     console.log(
       "Emergency updated with AI"
     );
@@ -97,6 +125,16 @@ export const handler = async (
       }),
     };
   } catch (err) {
+
+    console.log(
+      JSON.stringify({
+        metric: "ai_failed",
+        emergencyId:
+          event?.emergencyId,
+        error: err.message,
+      })
+    );
+
     console.log(
       "AI LAMBDA ERROR:",
       err
