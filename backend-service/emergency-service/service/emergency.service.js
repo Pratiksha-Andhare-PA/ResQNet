@@ -66,6 +66,15 @@ const createEmergency = async (
       Item: item,
     })
   );
+  
+  console.log(
+    JSON.stringify({
+      metric: "emergency_created",
+      emergencyId,
+      userId,
+      timestamp: Date.now(),
+    })
+  );
 
   console.log(
     "Emergency saved immediately"

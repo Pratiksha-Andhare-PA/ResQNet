@@ -16,11 +16,16 @@ export const handler = async (event) => {
 
     const httpMethod =
       event.requestContext?.http?.method ||
+      event.httpMethod ||
       "POST";
 
     const userId =
       event.requestContext?.authorizer
         ?.jwt?.claims?.sub ||
+    
+      event.requestContext?.authorizer
+        ?.claims?.sub ||
+    
       "test-user";
 
     if (!userId) {
@@ -66,7 +71,8 @@ export const handler = async (event) => {
     if (httpMethod === "GET") {
 
       const emergencyId =
-        event.pathParameters?.id;
+        event.pathParameters?.id ||
+        event.pathParameters?.emergencyId;
 
       const result =
         await getEmergencyById(
