@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "sanitize-html": "^2.17.4",
+    "zod": "^4.4.3"
+  }
+}
