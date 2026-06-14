@@ -45,7 +45,7 @@
 
 ---
 
-# 🌍 Why This Project Matters
+# 🌍 Why ResQNet?
 
 Medical emergencies are inherently time-sensitive, where delays in decision-making can significantly impact patient outcomes. Individuals often struggle to determine the most suitable nearby hospital or understand the urgency of their symptoms under stressful conditions.
 
