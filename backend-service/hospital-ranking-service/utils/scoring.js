@@ -14,7 +14,8 @@ export default function computeScore(
       context.severity
     ] || rankingWeights.MEDIUM;
 
-  const analysis = analyzeEmergency(context);
+  const distanceScore =
+    normalizeDistance(distance);
 
   const specialty =
     h.specializations &&
