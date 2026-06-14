@@ -164,6 +164,17 @@ export const handler = async (
       })
     );
 
+    console.log(
+      JSON.stringify({
+        metric:
+          "hospital_selected",
+        emergencyId,
+        hospitalId,
+        hospitalName,
+        timestamp: Date.now(),
+      })
+    );
+
     return {
       statusCode: 200,
 
