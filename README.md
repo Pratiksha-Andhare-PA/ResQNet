@@ -16,31 +16,31 @@
 
 # 📑 Table of Contents
 
-* Why This Project Matters
-* Application Screenshots
-* Key Features
-* Tech Stack
-* System Architecture
-* Complete User Journey
-* Lambda Functions
-* Event-Driven Architecture
-* Emergency Creation Flow
-* AI Triage Engine
-* Hospital Ranking Engine
-* DynamoDB Design
-* API Documentation
-* Observability & Monitoring
-* CloudWatch Dashboards
-* CloudWatch Alarms
-* Security
-* Distributed Systems Concepts
-* Scalability Considerations
-* Architecture Decisions
-* Project Achievements
-* Repository Structure
-* Local Setup
-* Future Roadmap
-* Author
+- [Why This Project Matters](#-why-this-project-matters)
+- [Application Screenshots](#-application-screenshots)
+- [Key Features](#-key-features)
+- [Tech Stack](#-tech-stack)
+- [System Architecture](#-system-architecture)
+- [Complete User Journey](#-complete-user-journey)
+- [Lambda Functions](#-lambda-functions)
+- [Event-Driven Architecture](#-event-driven-architecture)
+- [Emergency Creation Flow](#-emergency-creation-flow)
+- [AI Triage Engine](#-ai-triage-engine)
+- [Hospital Ranking Engine](#-hospital-ranking-engine)
+- [DynamoDB Design](#-dynamodb-design)
+- [API Documentation](#-api-documentation)
+- [Observability & Monitoring](#-observability--monitoring)
+- [CloudWatch Dashboards](#-cloudwatch-dashboards)
+- [CloudWatch Alarms](#-cloudwatch-alarms)
+- [Security](#-security)
+- [Distributed Systems Concepts](#-distributed-systems-concepts)
+- [Scalability Considerations](#-scalability-considerations)
+- [Architecture Decisions](#-architecture-decisions)
+- [Project Achievements](#-project-achievements)
+- [Repository Structure](#-repository-structure)
+- [Local Setup](#-local-setup)
+- [Future Roadmap](#-future-roadmap)
+- [Author](#-author)
 
 ---
 
