@@ -10,7 +10,7 @@
 ![Observability](https://img.shields.io/badge/CloudWatch-Monitoring-blue)
 ![License](https://img.shields.io/badge/Status-Production%20Style-success)
 
-> **Cloud-native, AI-powered emergency response platform leveraging AWS Serverless, Event-Driven Architecture, Distributed Systems principles, and intelligent hospital recommendations to reduce response time during critical medical situations.**
+> **Cloud-native, AI-powered emergency response platform leveraging AWS Serverless, Asynchronous processing patterns, Distributed Systems principles, and intelligent hospital recommendations to reduce response time during critical medical situations.**
 
 ---
 
@@ -318,9 +318,9 @@ docs/diagrams/eventbridge-architecture.png
 ```json
 {
   "severity": "CRITICAL",
-  "severityScore": 82,
-  "possibleCondition": "Acute cardiac event",
-  "recommendedAction": "Proceed to the nearest emergency department immediately.",
+  "severityScore": 95,
+  "possibleCondition": "Unconscious with potential stroke symptoms",
+  "recommendedAction": "Immediate medical attention required, call emergency services.",
   "aiProcessed": true
 }
 ```
@@ -358,22 +358,25 @@ The ranking engine combines these attributes to produce prioritized hospital sug
 
 | Attribute            | Description                                    |
 | -------------------- | ---------------------------------------------- |
-| userId               | User identifier                                |
-| emergencyId          | Emergency identifier                           |
-| createdAt            | Timestamp                                      |
-| symptoms             | `List<String>`                                 |
-| patientType          | `self`, `family`, `other`                      |
+| userId               | User identifier (Partition Key)                |
+| emergencyId          | Emergency identifier (Sort Key)                |
+| ageGroup             | Patient Age Category                           |
+| aiProcessed          | AI Processing Status                           |
+| ambulancePreference  | Ambulance Preference                           |
+| breathing            | Breathing Status                               |
+| conscious            | Conscious State                                |
+| createdAt            | Emergency Creation Timestamp                   |
 | location             | `{ lat, lng }`                                 |
-| severity             | AI severity                                    |
-| severityScore        | Numeric severity                               |
-| possibleCondition    | AI prediction                                  |
+| patientType          | `self` / `Someone else`                        |
+| possibleCondition    | AI prediction Condition                        |
 | recommendedAction    | AI recommendation                              |
-| aiProcessed          | AI completion flag                             |
-| ambulancePreference  | String                                         |
-| selectedHospitalId   | Assigned hospital                              |
-| selectedHospitalName | Assigned hospital                              |
-| selectedAt           | Assignment timestamp                           |
+| selectedAt           | Hospital Assignment timestamp                  |
+| selectedHospitalId   | Assigned Hospital ID                           |
+| selectedHospitalName | Assigned Hospital Name                         |
+| severity             | AI Predicted Severity                          |
+| severityScore        | Severity Score (0 - 100)                       |
 | status               | `PENDING`, `ASSIGNED`, `RESOLVED`, `CANCELLED` |
+| symptoms             | Emergency Symptoms                             |
 
 ---
 
@@ -427,7 +430,7 @@ Creates a new emergency request and initiates the emergency processing workflow.
 
 Returns the latest emergency details, including AI-generated severity assessment and hospital assignment information.
 
-> Internally mapped to API Gateway route: `GET /{id}`
+> GET /emergency/{id}
 
 ### Example Request
 
@@ -711,7 +714,7 @@ ResQNet demonstrates several core distributed systems principles:
 # 🏆 Project Achievements
 
 * ✅ AI-powered emergency triage workflow
-* ✅ Event-driven serverless architecture
+* ✅ Asynchronous AI Processing Architecture
 * ✅ Intelligent hospital recommendation engine
 * ✅ Production-style CloudWatch dashboards
 * ✅ SNS-backed alerting strategy
@@ -759,12 +762,19 @@ resqnet/
 
 # 💻 Local Setup
 
-## Backend
+## Backend Services
+
+Each Lambda function is maintained as an independent service.
 
 ```bash
-cd backend
+cd emergency-service
 npm install
-npm run dev
+
+cd ../processEmergencyAI
+npm install
+
+cd ../hospital-ranking-service
+npm install
 ```
 
 ## Flutter
