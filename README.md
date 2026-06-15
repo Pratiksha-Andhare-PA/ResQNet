@@ -728,29 +728,29 @@ ResQNet demonstrates several core distributed systems principles:
 ```text
 resqnet/
 │
-├── emergency-service/              # Emergency creation service 
-├── processEmergencyAI/             # AI triage processing service 
-├── hospital-ranking-service/       # Hospital recommendation engine 
-├── selectHospital/                 # Hospital assignment service 
-├── getUserProfile/                 # User profile retrieval 
-├── saveUserProfile/                # User profile management
+├── backend/
+│   ├── emergency-service/              # Emergency creation service
+│   ├── getUserProfile/                 # User profile retrieval
+│   ├── hospital-ranking-service/       # Hospital recommendation engine
+│   ├── processEmergencyAI/             # AI triage processing service
+│   ├── saveUserProfile/                # User profile management
+│   └── selectHospital/                 # Hospital assignment service
 │
-├── frontend/ 
-│   └── resq_net/                   # Flutter mobile application
-|
 ├── docs/
 │   ├── diagrams/
-│   │   ├── system-architecture.png
-│   │   ├── emergency-sequence.png
-│   │   ├── hospital-ranking-sequence.png
 │   │   ├── ai-triage-flow.png
+│   │   ├── emergency-sequence.png
 │   │   ├── hospital-ranking-engine.png
+│   │   ├── hospital-ranking-sequence.png
+│   │   ├── system-architecture.png
 │   │   └── user-journey.png
 │   │
-│   ├── screenshots/
-│   │   ├── UI_screens/
-│   │   └── aws-monitoring/
-│   │
+│   └── screenshots/
+│       ├── aws-monitoring/
+│       └── UI_screens/
+│
+├── frontend/
+│   └── resq_net/                       # Flutter mobile application
 │
 └── README.md
 ```
