@@ -38,7 +38,6 @@
 * Architecture Decisions
 * Project Achievements
 * Repository Structure
-* Deployment Guide
 * Local Setup
 * Future Roadmap
 * Author
@@ -63,7 +62,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 ---
 
-# 📱 Application Screenshots
+# 📱 Application UI
 
 | Authentication                         | Authentication                          | Home                                  |
 | -------------------------------------- | --------------------------------------- | ------------------------------------- |
@@ -115,9 +114,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 ## AI Layer
 
-* Ollama
-* Qwen Models
-* Phi Models
+* Ollama (Qwen Model: qwen2.5:3b)
 * Severity Classification
 * Condition Prediction
 * Recommended Actions Generation
@@ -310,7 +307,7 @@ docs/diagrams/eventbridge-architecture.png
 
 * Capture emergency symptoms.
 * Construct AI prompt.
-* Execute Ollama/Qwen/Phi inference.
+* Execute Ollama inference.
 * Predict severity.
 * Predict likely condition.
 * Generate recommended actions.
@@ -320,7 +317,7 @@ docs/diagrams/eventbridge-architecture.png
 
 ```json
 {
-  "severity": "HIGH",
+  "severity": "CRITICAL",
   "severityScore": 82,
   "possibleCondition": "Acute cardiac event",
   "recommendedAction": "Proceed to the nearest emergency department immediately.",
@@ -385,29 +382,119 @@ The ranking engine combines these attributes to produce prioritized hospital sug
 <details>
 <summary><strong>POST /emergency</strong></summary>
 
-Creates a new emergency request.
+Creates a new emergency request and initiates the emergency processing workflow.
+
+### Request
 
 ```json
 {
-  "symptoms": ["chest pain"],
-  "patientType": "self"
+  "location": {
+    "lat": 18.5204,
+    "lng": 73.8567
+  },
+  "symptoms": [
+    "chest pain",
+    "shortness of breath"
+  ],
+  "patientType": "self",
+  "ageGroup": "adult",
+  "conscious": true,
+  "breathing": true,
+  "ambulancePreference": true
 }
 ```
 
-Returns:
+### Response
 
 ```json
 {
-  "emergencyId": "emergency_123"
+  "success": true,
+  "emergencyId": "emergency_1781191591061"
 }
 ```
+
+### Processing Flow
+
+1. Emergency record is created in DynamoDB.
+2. API returns immediately to the user.
+3. `processEmergencyAI` Lambda is invoked asynchronously.
+4. AI triage updates the emergency record later.
 
 </details>
 
 <details>
 <summary><strong>GET /emergency/{id}</strong></summary>
 
-Returns the latest emergency details, including AI-generated insights.
+Returns the latest emergency details, including AI-generated severity assessment and hospital assignment information.
+
+> Internally mapped to API Gateway route: `GET /{id}`
+
+### Example Request
+
+```http
+GET /emergency/emergency_1781191591061
+```
+
+### Response
+
+```json
+{
+  "userId": "user5",
+  "emergencyId": "emergency_1781191591061",
+  "createdAt": "2026-06-11T15:26:31.061Z",
+  "symptoms": [
+    "chest pain"
+  ],
+  "severity": "HIGH",
+  "severityScore": 82,
+  "possibleCondition": "Acute Cardiac Event",
+  "recommendedAction": "Proceed to the nearest emergency department immediately.",
+  "aiProcessed": true,
+  "selectedHospitalId": "H001",
+  "selectedHospitalName": "City Hospital"
+}
+```
+
+</details>
+
+<details>
+<summary><strong>GET /hospitals/ranked</strong></summary>
+
+Returns hospitals ranked according to emergency severity, distance, and availability.
+
+### Example Request
+
+```http
+GET /hospitals/ranked?emergencyId=emergency_1781191591061
+```
+
+### Response
+
+```json
+{
+  "hospitals": [
+    {
+      "hospitalId": "H001",
+      "hospitalName": "City Hospital",
+      "distanceKm": 2.1,
+      "score": 94
+    },
+    {
+      "hospitalId": "H002",
+      "hospitalName": "Care Hospital",
+      "distanceKm": 3.4,
+      "score": 89
+    }
+  ]
+}
+```
+
+### Ranking Factors
+
+* Distance from emergency location
+* AI-generated severity score
+* Hospital availability
+* Emergency context
 
 </details>
 
@@ -416,26 +503,35 @@ Returns the latest emergency details, including AI-generated insights.
 
 Assigns a hospital to an emergency request.
 
-</details>
+### Request
 
-<details>
-<summary><strong>GET /emergency/history</strong></summary>
+```json
+{
+  "emergencyId": "emergency_1781191591061",
+  "hospitalId": "H001",
+  "hospitalName": "City Hospital"
+}
+```
 
-Returns historical emergency records for the authenticated user.
+### Response
 
-</details>
+```json
+{
+  "success": true,
+  "message": "Hospital assigned successfully"
+}
+```
 
-<details>
-<summary><strong>GET /user/profile</strong></summary>
+### DynamoDB Update
 
-Retrieves the current user profile.
-
-</details>
-
-<details>
-<summary><strong>PUT /user/profile</strong></summary>
-
-Updates user profile information.
+```json
+{
+  "selectedHospitalId": "H001",
+  "selectedHospitalName": "City Hospital",
+  "selectedAt": "2026-06-15T10:20:00Z",
+  "status": "ASSIGNED"
+}
+```
 
 </details>
 
@@ -632,57 +728,31 @@ ResQNet demonstrates several core distributed systems principles:
 ```text
 resqnet/
 │
-├── mobile/
-├── backend/
-├── infrastructure/
-├── aws/
+├── emergency-service/              # Emergency creation service 
+├── processEmergencyAI/             # AI triage processing service 
+├── hospital-ranking-service/       # Hospital recommendation engine 
+├── selectHospital/                 # Hospital assignment service 
+├── getUserProfile/                 # User profile retrieval 
+├── saveUserProfile/                # User profile management
 │
+├── frontend/ 
+│   └── resq_net/                   # Flutter mobile application
+|
 ├── docs/
 │   ├── diagrams/
 │   │   ├── system-architecture.png
-│   │   ├── user-journey.png
 │   │   ├── emergency-sequence.png
+│   │   ├── hospital-ranking-sequence.png
 │   │   ├── ai-triage-flow.png
 │   │   ├── hospital-ranking-engine.png
-│   │   ├── hospital-ranking-sequence.png
-│   │   └── eventbridge-architecture.png
+│   │   └── user-journey.png
 │   │
 │   ├── screenshots/
-│   │   ├── splash-screen.png
-│   │   ├── login-screen.png
-│   │   ├── signup-screen.png
-│   │   ├── home-screen.png
-│   │   ├── location-selection.png
-│   │   ├── emergency-form.png
-│   │   ├── hospital-ranking.png
-│   │   ├── ai-result.png
-│   │   └── hospital-selection.png
+│   │   ├── UI_screens/
+│   │   └── aws-monitoring/
 │   │
-│   └── aws/
-│       ├── cloudwatch-dashboard-system.png
-│       ├── cloudwatch-dashboard-ai.png
-│       ├── cloudwatch-dashboard-business.png
-│       ├── cloudwatch-dashboard-executive.png
-│       └── cloudwatch-alarms.png
 │
 └── README.md
-```
-
----
-
-# 🚀 Deployment Guide
-
-## AWS SAM
-
-```bash
-sam build
-sam deploy --guided
-```
-
-## Serverless Framework
-
-```bash
-serverless deploy
 ```
 
 ---
@@ -735,3 +805,5 @@ Specializing in:
 * Distributed Systems
 * AI Integration
 * Production-Grade System Design
+
+---
