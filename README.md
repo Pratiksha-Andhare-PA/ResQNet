@@ -16,34 +16,35 @@
 
 # 📑 Table of Contents
 
-- [Why This Project Matters](#-why-this-project-matters)
-- [Application Screenshots](#-application-screenshots)
-- [Key Features](#-key-features)
-- [Tech Stack](#-tech-stack)
-- [System Architecture](#-system-architecture)
-- [Complete User Journey](#-complete-user-journey)
-- [Lambda Functions](#-lambda-functions)
-- [Event-Driven Architecture](#-event-driven-architecture)
-- [Emergency Creation Flow](#-emergency-creation-flow)
-- [AI Triage Engine](#-ai-triage-engine)
-- [Hospital Ranking Engine](#-hospital-ranking-engine)
-- [DynamoDB Design](#-dynamodb-design)
-- [API Documentation](#-api-documentation)
-- [Observability & Monitoring](#-observability--monitoring)
-- [CloudWatch Dashboards](#-cloudwatch-dashboards)
-- [CloudWatch Alarms](#-cloudwatch-alarms)
-- [Security](#-security)
-- [Distributed Systems Concepts](#-distributed-systems-concepts)
-- [Scalability Considerations](#-scalability-considerations)
-- [Architecture Decisions](#-architecture-decisions)
-- [Project Achievements](#-project-achievements)
-- [Repository Structure](#-repository-structure)
-- [Local Setup](#-local-setup)
-- [Future Roadmap](#-future-roadmap)
-- [Author](#-author)
+- [Why ResQNet](#why-this-project-matters)
+- [Application UI](#application-screenshots)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [System Architecture](#system-architecture)
+- [Complete User Journey](#complete-user-journey)
+- [Lambda Functions](#lambda-functions)
+- [Event-Driven Architecture](#event-driven-architecture)
+- [Emergency Creation Flow](#emergency-creation-flow)
+- [AI Triage Engine](#ai-triage-engine)
+- [Hospital Ranking Engine](#hospital-ranking-engine)
+- [DynamoDB Design](#dynamodb-design)
+- [API Documentation](#api-documentation)
+- [Observability & Monitoring](#observability-monitoring)
+- [CloudWatch Dashboards](#cloudwatch-dashboards)
+- [CloudWatch Alarms](#cloudwatch-alarms)
+- [Security](#security)
+- [Distributed Systems Concepts](#distributed-systems-concepts)
+- [Scalability Considerations](#scalability-considerations)
+- [Architecture Decisions](#architecture-decisions)
+- [Project Achievements](#project-achievements)
+- [Repository Structure](#repository-structure)
+- [Local Setup](#local-setup)
+- [Future Roadmap](#future-roadmap)
+- [Author](#author)
 
 ---
 
+<a id="why-this-project-matters"></a>
 # 🌍 Why ResQNet?
 
 Medical emergencies are inherently time-sensitive, where delays in decision-making can significantly impact patient outcomes. Individuals often struggle to determine the most suitable nearby hospital or understand the urgency of their symptoms under stressful conditions.
@@ -62,6 +63,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 ---
 
+<a id="application-screenshots"></a>
 # 📱 Application UI
 
 | Authentication                         | Authentication                          | Home                                  |
@@ -78,6 +80,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 ---
 
+<a id="key-features"></a>
 # ⭐ Key Features
 
 * 🔐 JWT & Cognito Authentication
@@ -95,6 +98,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 ---
 
+<a id="tech-stack"></a>
 # 🛠️ Tech Stack
 
 ## Frontend
@@ -131,6 +135,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 ---
 
+<a id="system-architecture"></a>
 # 🏗️ System Architecture
 
 ![System Architecture](docs/diagrams/system-architecture.png)
@@ -172,6 +177,7 @@ The architecture follows a **serverless, event-driven design**, enabling indepen
 
 ---
 
+<a id="complete-user-journey"></a>
 # 👤 Complete User Journey
 
 ![User Journey](docs/diagrams/user-journey.png)
@@ -191,6 +197,7 @@ The architecture follows a **serverless, event-driven design**, enabling indepen
 
 ---
 
+<a id="lambda-functions"></a>
 # ⚙️ Lambda Functions
 
 | Function                | Purpose                                                                                               |
@@ -232,6 +239,7 @@ The architecture follows a **serverless, event-driven design**, enabling indepen
 
 ---
 
+<a id="event-driven-architecture"></a>
 # ⚡ Event-Driven Architecture
 
 ## Current Architecture
@@ -277,6 +285,7 @@ docs/diagrams/eventbridge-architecture.png
 
 ---
 
+<a id="emergency-creation-flow"></a>
 # 🚨 Emergency Creation Flow
 
 ![Emergency Sequence](docs/diagrams/emergency-sequence.png)
@@ -299,6 +308,7 @@ docs/diagrams/eventbridge-architecture.png
 
 ---
 
+<a id="ai-triage-engine"></a>
 # 🤖 AI Triage Engine
 
 ![AI Triage](docs/diagrams/ai-triage-flow.png)
@@ -327,6 +337,7 @@ docs/diagrams/eventbridge-architecture.png
 
 ---
 
+<a id="hospital-ranking-engine"></a>
 # 🏥 Hospital Ranking Engine
 
 ![Hospital Ranking](docs/diagrams/hospital-ranking-engine.png)
@@ -345,6 +356,7 @@ The ranking engine combines these attributes to produce prioritized hospital sug
 
 ---
 
+<a id="dynamodb-design"></a>
 # 🗄️ DynamoDB Design
 
 ## Primary Keys
@@ -380,6 +392,7 @@ The ranking engine combines these attributes to produce prioritized hospital sug
 
 ---
 
+<a id="api-documentation"></a>
 # 📚 API Documentation
 
 <details>
@@ -540,6 +553,7 @@ Assigns a hospital to an emergency request.
 
 ---
 
+<a id="observability-monitoring"></a>
 # 📈 Observability & Monitoring
 
 ResQNet incorporates production-oriented observability practices using CloudWatch.
@@ -578,6 +592,7 @@ Metric Filters enable operational dashboards and alerting pipelines.
 
 ---
 
+<a id="cloudwatch-dashboards"></a>
 # 📊 CloudWatch Dashboards
 
 | Dashboard           | Screenshot                                       |
@@ -610,6 +625,7 @@ Aggregates platform KPIs including AI success rate, emergency throughput, and ho
 
 ---
 
+<a id="cloudwatch-alarms"></a>
 # 🚨 CloudWatch Alarms
 
 ![](docs/aws/cloudwatch-alarms.png)
@@ -626,6 +642,7 @@ All alarms publish notifications via **Amazon SNS**, enabling rapid operational 
 
 ---
 
+<a id="security"></a>
 # 🔐 Security
 
 * Amazon Cognito Authentication
@@ -638,6 +655,7 @@ All alarms publish notifications via **Amazon SNS**, enabling rapid operational 
 
 ---
 
+<a id="distributed-systems-concepts"></a>
 # 🌐 Distributed Systems Concepts
 
 ResQNet demonstrates several core distributed systems principles:
@@ -653,6 +671,7 @@ ResQNet demonstrates several core distributed systems principles:
 
 ---
 
+<a id="scalability-considerations"></a>
 # 📈 Scalability Considerations
 
 ## Current
@@ -674,6 +693,7 @@ ResQNet demonstrates several core distributed systems principles:
 
 ---
 
+<a id="architecture-decisions"></a>
 # 🧠 Architecture Decisions
 
 ## Why AWS Lambda?
@@ -711,6 +731,7 @@ ResQNet demonstrates several core distributed systems principles:
 
 ---
 
+<a id="project-achievements"></a>
 # 🏆 Project Achievements
 
 * ✅ AI-powered emergency triage workflow
@@ -726,6 +747,7 @@ ResQNet demonstrates several core distributed systems principles:
 
 ---
 
+<a id="repository-structure"></a>
 # 📂 Repository Structure
 
 ```text
@@ -760,6 +782,7 @@ resqnet/
 
 ---
 
+<a id="local-setup"></a>
 # 💻 Local Setup
 
 ## Backend Services
@@ -787,6 +810,7 @@ flutter run
 
 ---
 
+<a id="future-roadmap"></a>
 # 🛣️ Future Roadmap
 
 * Amazon EventBridge integration
@@ -801,6 +825,7 @@ flutter run
 
 ---
 
+<a id="author"></a>
 # 👩‍💻 Author
 
 **Pratiksha Andhare**
