@@ -58,26 +58,46 @@ export async function fetchNearbyHospitals(
         continue;
       }
 
-      return response.data.elements.map(
-        (h) => ({
-          hospitalId:
-            `osm_${h.id}`,
+      const hospitals =
+        response.data.elements.map(
+          (h) => ({
+            hospitalId:
+              `osm_${h.id}`,
 
-          name:
-            h.tags?.name ||
-            "Nearby Hospital",
+            name:
+              h.tags?.name ||
+              "Nearby Hospital",
 
-          location: {
-            lat:
-              h.lat ||
-              h.center?.lat,
+            location: {
+              lat:
+                h.lat ||
+                h.center?.lat,
 
-            lng:
-              h.lon ||
-              h.center?.lon,
-          },
-        })
-      );
+              lng:
+                h.lon ||
+                h.center?.lon,
+            },
+          })
+       );
+
+      const unique =
+        new Map();
+
+      for (const h of hospitals) {
+
+        const key =
+          h.name
+            .trim()
+            .toLowerCase();
+
+        if (!unique.has(key)) {
+          unique.set(key, h);
+        }
+      }
+
+      return [
+        ...unique.values(),
+      ];
 
     } catch (error) {
 

@@ -1,4 +1,13 @@
-function seededNumber(str) {
+function seededNumber(str = "") {
+  let hash = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    hash =
+      str.charCodeAt(i) +
+      ((hash << 5) - hash);
+  }
+
+  return Math.abs(hash);
 }
 
 const specializations = [
@@ -13,44 +22,45 @@ export function enrichHospitals(
   hospitals
 ) {
   return hospitals.map((h) => {
+
     const seed = seededNumber(
       h.hospitalId || h.name
-    );
-
-    const icuAvailable =
-      seed % 2 === 0;
-
-    const availableBeds =
-      (seed % 45) + 5;
-
-    const ambulancesAvailable =
-      seed % 5;
-
-    const rating = (
-      (seed % 15) / 10 + 3.5
-    ).toFixed(1);
-
-    const shuffled = [
-      ...specializations,
-    ].sort(
-      (a, b) =>
-        ((seed + a.length) % 7) -
-        ((seed + b.length) % 7)
     );
 
     return {
       ...h,
 
-      icuAvailable,
+      // ~70% hospitals have ICU
+      icuAvailable:
+        seed % 10 < 7,
 
-      availableBeds,
+      // 10–99 beds
+      availableBeds:
+        (seed % 90) + 10,
 
-      ambulancesAvailable,
+      // 0–5 ambulances
+      ambulancesAvailable:
+        seed % 6,
 
-      rating: Number(rating),
+      // 3.0–5.0 rating
+      rating: Number(
+        (
+          3 +
+          (seed % 21) / 10
+        ).toFixed(1)
+      ),
 
-      specializations:
-        shuffled.slice(0, 2),
+      specializations: [
+        "general",
+        specializations[
+          seed %
+            specializations.length
+        ],
+        specializations[
+          (seed + 2) %
+            specializations.length
+        ],
+      ],
 
       ageGroupSupport: [
         "child",
