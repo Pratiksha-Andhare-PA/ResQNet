@@ -21,7 +21,7 @@ const profileSchema = z.object({
 
   phone: z
     .string()
-    .regex(/^[0-9]{10}$/)
+    .regex(/^\+91[0-9]{10}$/)
     .optional(),
 
   age: z.number().min(1).max(120).optional(),
@@ -199,9 +199,13 @@ export const handler = async (event) => {
 
     /// ✅ ZOD VALIDATION ERROR
     if (error.name === "ZodError") {
+      console.error(
+        "VALIDATION ERRORS:",
+        JSON.stringify(error.errors, null, 2)
+      );
+
       return {
         statusCode: 400,
-
         body: JSON.stringify({
           message: "Validation failed",
           errors: error.errors,
