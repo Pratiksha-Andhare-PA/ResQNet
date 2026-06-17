@@ -56,7 +56,7 @@ Key benefits include:
 * ⚡ Faster emergency request processing through serverless APIs.
 * 🧠 AI-assisted severity classification and condition prediction.
 * 🏥 Intelligent hospital recommendations based on context and proximity.
-* 🔄 Event-driven asynchronous workflows for improved responsiveness.
+* 🔄 Asynchronous workflows for improved responsiveness.
 * 📈 Production-grade monitoring and observability for operational reliability.
 
 The platform demonstrates practical applications of **AWS Serverless**, **Distributed Systems**, **Cloud Architecture**, **AI Integration**, and **Production Engineering Practices**.
