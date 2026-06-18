@@ -732,9 +732,8 @@ ResQNet demonstrates several core distributed systems principles:
 * ✅ SNS-backed alerting strategy
 * ✅ Distributed systems design patterns
 * ✅ AWS-native backend implementation
-* ✅ AI integration with asynchronous processing
 * ✅ Fault-isolated cloud architecture
-* ✅ Interview-ready system design showcasing scalability and observability
+* ✅ System design showcasing scalability and observability
 
 ---
 
