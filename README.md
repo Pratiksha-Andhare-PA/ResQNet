@@ -6,7 +6,7 @@
 ![Flutter](https://img.shields.io/badge/Flutter-Mobile-02569B?logo=flutter)
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-green?logo=node.js)
 ![AI](https://img.shields.io/badge/AI-Powered-purple)
-![Event Driven](https://img.shields.io/badge/Event-Driven-success)
+![Async Processing](https://img.shields.io/badge/Async-Processing-success)
 ![Observability](https://img.shields.io/badge/CloudWatch-Monitoring-blue)
 ![License](https://img.shields.io/badge/Status-Production%20Style-success)
 
@@ -23,7 +23,7 @@
 - [System Architecture](#system-architecture)
 - [Complete User Journey](#complete-user-journey)
 - [Lambda Functions](#lambda-functions)
-- [Event-Driven Architecture](#event-driven-architecture)
+- [Asynchronous Processing Architecture](#asynchronous-processing-architecture)
 - [Emergency Creation Flow](#emergency-creation-flow)
 - [AI Triage Engine](#ai-triage-engine)
 - [Hospital Ranking Engine](#hospital-ranking-engine)
@@ -90,7 +90,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 * 🏥 Intelligent Hospital Recommendation Engine
 * 📍 Current & Manual Location Support
 * ✅ Hospital Assignment Workflow
-* ⚡ Event-Driven Asynchronous AI Processing
+* ⚡ Asynchronous AI Processing
 * ☁️ AWS Serverless Architecture
 * 📊 CloudWatch Monitoring & Dashboards
 * 🔔 SNS-Based Operational Alerting
@@ -173,7 +173,8 @@ EmergencyRequest Lambda
                selectHospital Lambda
 ```
 
-The architecture follows a **serverless, event-driven design**, enabling independent scaling of compute components while minimizing latency for user-facing operations.
+The architecture follows a **serverless and asynchronous processing model**, enabling independent scaling of compute components while minimizing latency for user-facing operations.
+Emergency requests are persisted immediately and AI triage executes asynchronously through Lambda invocation, reducing user-facing latency while enabling independent scaling of AI workloads.
 
 ---
 
@@ -239,8 +240,8 @@ The architecture follows a **serverless, event-driven design**, enabling indepen
 
 ---
 
-<a id="event-driven-architecture"></a>
-# ⚡ Event-Driven Architecture
+<a id="asynchronous-processing-architecture"></a>
+# ⚡ Asynchronous Processing Architecture
 
 ## Current Architecture
 
@@ -276,13 +277,6 @@ Amazon EventBridge
    ├────────► Analytics
    └────────► Audit Pipelines
 ```
-
-**Future Diagram Placeholder**
-
-```
-docs/diagrams/eventbridge-architecture.png
-```
-
 ---
 
 <a id="emergency-creation-flow"></a>
@@ -660,14 +654,15 @@ All alarms publish notifications via **Amazon SNS**, enabling rapid operational 
 
 ResQNet demonstrates several core distributed systems principles:
 
-| Concept              | Application in ResQNet                                             |
-| -------------------- | ------------------------------------------------------------------ |
-| Eventual Consistency | Emergency records are enriched asynchronously after creation.      |
-| Async Processing     | AI triage executes independently of synchronous API requests.      |
-| Stateless Services   | Lambda functions maintain no session state.                        |
-| Fault Isolation      | AI failures do not block emergency creation.                       |
-| Independent Scaling  | AI workloads and API workloads scale separately.                   |
-| Loose Coupling       | Components communicate through asynchronous invocation boundaries. |
+| Concept                 | Application in ResQNet                                             |
+| ----------------------- | ------------------------------------------------------------------ |
+| Eventual Consistency    | Emergency records are enriched asynchronously after creation.      |
+| Async Processing        | AI triage executes independently of synchronous API requests.      |
+| Stateless Services      | Lambda functions maintain no session state.                        |
+| Fault Isolation         | AI failures do not block emergency creation.                       |
+| Independent Scaling     | AI workloads and API workloads scale separately.                   |
+| Loose Coupling          | Components communicate through asynchronous invocation boundaries. |
+| Async Messaging Pattern | AI processing occurs asynchronously after request creation.        |
 
 ---
 
@@ -711,16 +706,11 @@ ResQNet demonstrates several core distributed systems principles:
 
 ## Why Asynchronous AI Processing?
 
-* Minimizes API latency
+* Minimizes API response latency
 * Improves frontend responsiveness
-* Enables compute isolation
-
-## Why Event-Driven Design?
-
-* Loose coupling
-* Independent services
-* Easier extensibility
-* Better resilience
+* Prevents AI workloads from blocking requests
+* Enables independent scaling of compute workloads
+* Improves fault isolation
 
 ## Why CloudWatch?
 
@@ -736,6 +726,7 @@ ResQNet demonstrates several core distributed systems principles:
 
 * ✅ AI-powered emergency triage workflow
 * ✅ Asynchronous AI Processing Architecture
+* ✅ Serverless Distributed System Design
 * ✅ Intelligent hospital recommendation engine
 * ✅ Production-style CloudWatch dashboards
 * ✅ SNS-backed alerting strategy
