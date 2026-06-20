@@ -66,17 +66,67 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 <a id="application-screenshots"></a>
 # 📱 Application UI
 
-| Authentication                         | Authentication                          | Home                                  |
-| -------------------------------------- | --------------------------------------- | ------------------------------------- |
-| ![](docs/screenshots/login-screen.png) | ![](docs/screenshots/signup-screen.png) | ![](docs/screenshots/home-screen.png) |
+## 🚀 App Launch & Authentication
 
-| Splash                                  | Location Selection                           | Emergency Form                           |
-| --------------------------------------- | -------------------------------------------- | ---------------------------------------- |
-| ![](docs/screenshots/splash-screen.png) | ![](docs/screenshots/location-selection.png) | ![](docs/screenshots/emergency-form.png) |
+| Splash | Login | OTP | SOS |
+|---------|-------|-----|-----|
+| ![](Images/1_splash_screen.jpeg) | ![](Images/2_Login.jpeg) | ![](Images/3_OTP.jpeg) | ![](Images/4_SOS.jpeg) |
 
-| Hospital Ranking                           | AI Result                           | Hospital Selection                           |
-| ------------------------------------------ | ----------------------------------- | -------------------------------------------- |
-| ![](docs/screenshots/hospital-ranking.png) | ![](docs/screenshots/ai-result.png) | ![](docs/screenshots/hospital-selection.png) |
+---
+
+## 👤 Profile Management
+
+| Create Profile | Edit Profile | Saved Profile | View Profile |
+|----------------|--------------|---------------|--------------|
+| ![](Images/5_1_Profile.jpeg) | ![](Images/5_2_Profile.jpeg) | ![](Images/5_3_Profile_saved.jpeg) | ![](Images/5_4_Profile_view.jpeg) |
+
+| View Details | Edit | Update |
+|--------------|------|--------|
+| ![](Images/5_5_Profile_view.jpeg) | ![](Images/5_6_Profile_edit.jpeg) | ![](Images/5_7_Profile_edit.jpeg) |
+
+---
+
+## 📍 Location Selection
+
+| Location | Search | Select | Confirm |
+|----------|---------|---------|----------|
+| ![](Images/6_1_Location.jpeg) | ![](Images/6_2_search_location.jpeg) | ![](Images/6_3_select_location.jpeg) | ![](Images/6_4_confirm_location.jpeg) |
+
+---
+
+## 🚨 Emergency Request
+
+| Form | Continue | Age | Ambulance |
+|------|----------|-----|------------|
+| ![](Images/7_1_emergency_form.jpeg) | ![](Images/7_2_emergency_form.jpeg) | ![](Images/7_3_Age.jpeg) | ![](Images/7_4_Ambulance.jpeg) |
+
+| Filled Form |
+|-------------|
+| ![](Images/7_5_filled form.jpeg) |
+
+---
+
+## 🏥 Nearby Hospitals
+
+| Results 1 | Results 2 | Results 3 |
+|-----------|-----------|-----------|
+| ![](Images/8_1_Nearby Hospitals.jpeg) | ![](Images/8_2_Nearby Hospitals.jpeg) | ![](Images/8_3_Nearby Hospitals.jpeg) |
+
+---
+
+## 🤖 AI Assessment
+
+| Assessment | Insights | Ranking |
+|------------|----------|----------|
+| ![](Images/9_1_AI assessment.jpeg) | ![](Images/9_2_AI assessment.jpeg) | ![](Images/9_2_AI Ranking.jpeg) |
+
+---
+
+## ✅ Hospital Selection
+
+| Select Hospital | Confirmation |
+|-----------------|--------------|
+| ![](Images/10_select hospital.jpeg) | ![](Images/11_selected hospital.jpeg) |
 
 ---
 
