@@ -64,19 +64,106 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 ---
 
 <a id="application-screenshots"></a>
+
 # 📱 Application UI
 
-| Authentication                         | Authentication                          | Home                                  |
-| -------------------------------------- | --------------------------------------- | ------------------------------------- |
-| ![](docs/screenshots/login-screen.png) | ![](docs/screenshots/signup-screen.png) | ![](docs/screenshots/home-screen.png) |
+The following screenshots showcase the complete user journey through **ResQNet**, from authentication and profile setup to AI-assisted emergency reporting and intelligent hospital recommendations.
 
-| Splash                                  | Location Selection                           | Emergency Form                           |
-| --------------------------------------- | -------------------------------------------- | ---------------------------------------- |
-| ![](docs/screenshots/splash-screen.png) | ![](docs/screenshots/location-selection.png) | ![](docs/screenshots/emergency-form.png) |
+---
 
-| Hospital Ranking                           | AI Result                           | Hospital Selection                           |
-| ------------------------------------------ | ----------------------------------- | -------------------------------------------- |
-| ![](docs/screenshots/hospital-ranking.png) | ![](docs/screenshots/ai-result.png) | ![](docs/screenshots/hospital-selection.png) |
+## 🚀 App Launch & Authentication
+
+<p align="center">
+  <img src="Images/1_splash_screen.jpeg" width="220"/>
+  <img src="Images/2_Login.jpeg" width="220"/>
+  <img src="Images/3_OTP.jpeg" width="220"/>
+  <img src="Images/4_SOS.jpeg" width="220"/>
+</p>
+
+---
+
+## 👤 Profile Management
+
+<p align="center">
+  <img src="Images/5_1_Profile.jpeg" width="280"/>
+  <img src="Images/5_2_Profile.jpeg" width="280"/>
+  <img src="Images/5_3_Profile_saved.jpeg" width="280"/>
+</p>
+
+<p align="center">
+  <img src="Images/5_4_Profile_view.jpeg" width="220"/>
+  <img src="Images/5_5_Profile_view.jpeg" width="220"/>
+  <img src="Images/5_6_Profile_edit.jpeg" width="220"/>
+  <img src="Images/5_7_Profile_edit.jpeg" width="220"/>
+</p>
+
+---
+
+## 📍 Location Selection
+
+<p align="center">
+  <img src="Images/6_1_Location.jpeg" width="220"/>
+  <img src="Images/6_2_search_location.jpeg" width="220"/>
+  <img src="Images/6_3_select_location.jpeg" width="220"/>
+  <img src="Images/6_4_confirm_location.jpeg" width="220"/>
+</p>
+
+---
+
+## 🚨 Emergency Reporting
+
+<p align="center">
+  <img src="Images/7_1_emergency_form.jpeg" width="220"/>
+  <img src="Images/7_2_emergency_form.jpeg" width="220"/>
+  <img src="Images/7_3_Age.jpeg" width="220"/>
+  <img src="Images/7_4_Ambulance.jpeg" width="220"/>
+</p>
+
+<p align="center">
+  <img src="Images/7_5_filled form.jpeg" width="280"/>
+</p>
+
+---
+
+## 🏥 Nearby Hospital Recommendations
+
+<p align="center">
+  <img src="Images/8_1_Nearby Hospitals.jpeg" width="280"/>
+  <img src="Images/8_2_Nearby Hospitals.jpeg" width="280"/>
+  <img src="Images/8_3_Nearby Hospitals.jpeg" width="280"/>
+</p>
+
+---
+
+## 🤖 AI Assessment & Smart Ranking
+
+<p align="center">
+  <img src="Images/9_1_AI assessment.jpeg" width="280"/>
+  <img src="Images/9_2_AI assessment.jpeg" width="280"/>
+  <img src="Images/9_2_AI Ranking.jpeg" width="280"/>
+</p>
+
+---
+
+## ✅ Hospital Selection & Confirmation
+
+<p align="center">
+  <img src="Images/10_select_hospital.jpeg" width="320"/>
+  <img src="Images/11_selected_hospital.jpeg" width="320"/>
+</p>
+
+---
+
+### ✨ Highlights
+
+- 🔐 Secure Authentication with OTP Verification
+- 👤 User Profile Management
+- 📍 Manual & Current Location Selection
+- 🚨 Emergency Request Creation
+- 🤖 AI-Powered Medical Assessment
+- 🏥 Intelligent Hospital Ranking Engine
+- 🚑 Smart Hospital Selection Workflow
+- ☁️ Real-Time Serverless Backend Integration
 
 ---
 
@@ -732,8 +819,9 @@ ResQNet demonstrates several core distributed systems principles:
 * ✅ SNS-backed alerting strategy
 * ✅ Distributed systems design patterns
 * ✅ AWS-native backend implementation
+* ✅ AI integration with asynchronous processing
 * ✅ Fault-isolated cloud architecture
-* ✅ System design showcasing scalability and observability
+* ✅ Interview-ready system design showcasing scalability and observability
 
 ---
 
