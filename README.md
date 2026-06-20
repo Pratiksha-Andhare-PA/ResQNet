@@ -73,87 +73,100 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 ## 🚀 App Launch & Authentication
 
-<p align="center">
-  <img src="Images/1_splash_screen.jpeg" width="220"/>
-  <img src="Images/2_Login.jpeg" width="220"/>
-  <img src="Images/3_OTP.jpeg" width="220"/>
-  <img src="Images/4_SOS.jpeg" width="220"/>
-</p>
+<table>
+<tr>
+<td><img src="Images/1_splash_screen.jpeg" width="220"/></td>
+<td><img src="Images/2_Login.jpeg" width="220"/></td>
+<td><img src="Images/3_OTP.jpeg" width="220"/></td>
+<td><img src="Images/4_SOS.jpeg" width="220"/></td>
+</tr>
+</table>
 
 ---
 
 ## 👤 Profile Management
 
-<p align="center">
-  <img src="Images/5_1_Profile.jpeg" width="280"/>
-  <img src="Images/5_2_Profile.jpeg" width="280"/>
-  <img src="Images/5_3_Profile_saved.jpeg" width="280"/>
-</p>
+<table>
+<tr>
+<td><img src="Images/5_1_Profile.jpeg" width="280"/></td>
+<td><img src="Images/5_2_Profile.jpeg" width="280"/></td>
+<td><img src="Images/5_3_Profile_saved.jpeg" width="280"/></td>
+</tr>
 
-<p align="center">
-  <img src="Images/5_4_Profile_view.jpeg" width="220"/>
-  <img src="Images/5_5_Profile_view.jpeg" width="220"/>
-  <img src="Images/5_6_Profile_edit.jpeg" width="220"/>
-  <img src="Images/5_7_Profile_edit.jpeg" width="220"/>
-</p>
+<tr>
+<td><img src="Images/5_4_Profile_view.jpeg" width="220"/></td>
+<td><img src="Images/5_5_Profile_view.jpeg" width="220"/></td>
+<td><img src="Images/5_6_Profile_edit.jpeg" width="220"/></td>
+<td><img src="Images/5_7_Profile_edit.jpeg" width="220"/></td>
+</tr>
+</table>
 
 ---
 
 ## 📍 Location Selection
 
-<p align="center">
-  <img src="Images/6_1_Location.jpeg" width="220"/>
-  <img src="Images/6_2_search_location.jpeg" width="220"/>
-  <img src="Images/6_3_select_location.jpeg" width="220"/>
-  <img src="Images/6_4_confirm_location.jpeg" width="220"/>
-</p>
+<table>
+<tr>
+<td><img src="Images/6_1_Location.jpeg" width="220"/></td>
+<td><img src="Images/6_2_search_location.jpeg" width="220"/></td>
+<td><img src="Images/6_3_select_location.jpeg" width="220"/></td>
+<td><img src="Images/6_4_confirm_location.jpeg" width="220"/></td>
+</tr>
+</table>
 
 ---
 
 ## 🚨 Emergency Reporting
 
-<p align="center">
-  <img src="Images/7_1_emergency_form.jpeg" width="220"/>
-  <img src="Images/7_2_emergency_form.jpeg" width="220"/>
-  <img src="Images/7_3_Age.jpeg" width="220"/>
-  <img src="Images/7_4_Ambulance.jpeg" width="220"/>
-</p>
+<table>
+<tr>
+<td><img src="Images/7_1_emergency_form.jpeg" width="220"/></td>
+<td><img src="Images/7_2_emergency_form.jpeg" width="220"/></td>
+<td><img src="Images/7_3_Age.jpeg" width="220"/></td>
+</tr>
 
-<p align="center">
-  <img src="Images/7_5_filled form.jpeg" width="280"/>
-</p>
+<tr>
+<td><img src="Images/7_4_Ambulance.jpeg" width="220"/></td>
+<td><img src="Images/7_5_filled form.jpeg" width="280"/></td>
+</tr>
+</table>
 
 ---
 
 ## 🏥 Nearby Hospital Recommendations
 
-<p align="center">
-  <img src="Images/8_1_Nearby Hospitals.jpeg" width="280"/>
-  <img src="Images/8_2_Nearby Hospitals.jpeg" width="280"/>
-  <img src="Images/8_3_Nearby Hospitals.jpeg" width="280"/>
-</p>
+<table>
+<tr>
+<td><img src="Images/8_1_Nearby Hospitals.jpeg" width="280"/></td>
+<td><img src="Images/8_2_Nearby Hospitals.jpeg" width="280"/></td>
+<td><img src="Images/8_3_Nearby Hospitals.jpeg" width="280"/></td>
+</tr>
+</table>
 
 ---
 
 ## 🤖 AI Assessment & Smart Ranking
 
-<p align="center">
-  <img src="Images/9_1_AI assessment.jpeg" width="280"/>
-  <img src="Images/9_2_AI assessment.jpeg" width="280"/>
-  <img src="Images/9_2_AI Ranking.jpeg" width="280"/>
-</p>
+<table>
+<tr>
+<td><img src="Images/9_1_AI assessment.jpeg" width="280"/></td>
+<td><img src="Images/9_2_AI assessment.jpeg" width="280"/></td>
+<td><img src="Images/9_2_AI Ranking.jpeg" width="280"/></td>
+</tr>
+</table>
 
 ---
 
 ## ✅ Hospital Selection & Confirmation
 
-<p align="center">
-  <img src="Images/10_select_hospital.jpeg" width="320"/>
-  <img src="Images/11_selected_hospital.jpeg" width="320"/>
-</p>
+<table>
+<tr>
+<td><img src="Images/10_select_hospital.jpeg" width="320"/></td>
+<td><img src="Images/11_selected_hospital.jpeg" width="320"/></td>
+</tr>
+</table>
 
 ---
-
 ### ✨ Highlights
 
 - 🔐 Secure Authentication with OTP Verification
