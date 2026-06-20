@@ -127,7 +127,7 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <tr>
 <td><img src="Images/7_4_Ambulance.jpeg" width="220"/></td>
-<td><img src="Images/7_5_filled form.jpeg" width="280"/></td>
+<td><img src="Images/7_5_filled form.jpg" width="280"/></td>
 </tr>
 </table>
 
