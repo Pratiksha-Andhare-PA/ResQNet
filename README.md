@@ -70,7 +70,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 | Splash | Login | OTP | SOS |
 |---------|-------|-----|-----|
-| ![](Images/splash_screen.png) | ![](Images/login.png) | ![](Images/otp.png) | ![](Images/sos.png) |
+| ![](Images/1_splash_screen.jpeg) | ![](Images/2_Login.jpeg) | ![](Images/3_OTP.jpeg) | ![](Images/4_SOS.jpeg) |
 
 ---
 
@@ -78,11 +78,11 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 | Create Profile | Edit Profile | Saved Profile | View Profile |
 |----------------|--------------|---------------|--------------|
-| ![](Images/profile_1.png) | ![](Images/profile_2.png) | ![](Images/profile_saved.png) | ![](Images/profile_view.png) |
+| ![](Images/5_1_Profile.jpeg) | ![](Images/5_2_Profile.jpeg) | ![](Images/5_3_Profile_saved.jpeg) | ![](Images/5_4_Profile_view.jpeg) |
 
 | View Details | Edit | Update |
 |--------------|------|--------|
-| ![](Images/profile_view_2.png) | ![](Images/profile_edit_1.png) | ![](Images/profile_edit_2.png) |
+| ![](Images/5_5_Profile_view.jpeg) | ![](Images/5_6_Profile_edit.jpeg) | ![](Images/5_7_Profile_edit.jpeg) |
 
 ---
 
@@ -90,7 +90,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 | Location | Search | Select | Confirm |
 |----------|---------|---------|----------|
-| ![](Images/location.png) | ![](Images/search_location.png) | ![](Images/select_location.png) | ![](Images/confirm_location.png) |
+| ![](Images/6_1_Location.jpeg) | ![](Images/6_2_search_location.jpeg) | ![](Images/6_3_select_location.jpeg) | ![](Images/6_4_confirm_location.jpeg) |
 
 ---
 
@@ -98,11 +98,11 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 | Form | Continue | Age | Ambulance |
 |------|----------|-----|------------|
-| ![](Images/emergency_form_1.png) | ![](Images/emergency_form_2.png) | ![](Images/age.png) | ![](Images/ambulance.png) |
+| ![](Images/7_1_emergency_form.jpeg) | ![](Images/7_2_emergency_form.jpeg) | ![](Images/7_3_Age.jpeg) | ![](Images/7_4_Ambulance.jpeg) |
 
 | Filled Form |
 |-------------|
-| ![](Images/filled_form.png) |
+| ![](Images/7_5_filled form.jpeg) |
 
 ---
 
@@ -110,7 +110,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 | Results 1 | Results 2 | Results 3 |
 |-----------|-----------|-----------|
-| ![](Images/nearby_hospitals_1.png) | ![](Images/nearby_hospitals_2.png) | ![](Images/nearby_hospitals_3.png) |
+| ![](Images/8_1_Nearby Hospitals.jpeg) | ![](Images/8_2_Nearby Hospitals.jpeg) | ![](Images/8_3_Nearby Hospitals.jpeg) |
 
 ---
 
@@ -118,7 +118,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 | Assessment | Insights | Ranking |
 |------------|----------|----------|
-| ![](Images/ai_assessment_1.png) | ![](Images/ai_assessment_2.png) | ![](Images/ai_ranking.png) |
+| ![](Images/9_1_AI assessment.jpeg) | ![](Images/9_2_AI assessment.jpeg) | ![](Images/9_2_AI Ranking.jpeg) |
 
 ---
 
@@ -126,7 +126,7 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 | Select Hospital | Confirmation |
 |-----------------|--------------|
-| ![](Images/select_hospital.png) | ![](Images/selected_hospital.png) |
+| ![](Images/10_select hospital.jpeg) | ![](Images/11_selected hospital.jpeg) |
 
 ---
 
