@@ -94,10 +94,9 @@ The following screenshots showcase the complete user journey through **ResQNet**
 </tr>
 
 <tr>
-<td><img src="Images/5_4_Profile_view.jpeg" width="220"/></td>
-<td><img src="Images/5_5_Profile_view.jpeg" width="220"/></td>
-<td><img src="Images/5_6_Profile_edit.jpeg" width="220"/></td>
-<td><img src="Images/5_7_Profile_edit.jpeg" width="220"/></td>
+<td><img src="Images/5_4_Profile_view.jpeg" width="280"/></td>
+<td><img src="Images/5_5_Profile_view.jpeg" width="280"/></td>
+<td><img src="Images/5_7_Profile_edit.jpeg" width="280"/></td>
 </tr>
 </table>
 
