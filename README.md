@@ -381,7 +381,7 @@ Amazon EventBridge
 <a id="emergency-creation-flow"></a>
 # 🚨 Emergency Creation Flow
 
-![Emergency Sequence](docs/diagrams/emergency-sequence.png)
+![Emergency Sequence](docs/diagrams/emergency-creation-sequence.png)
 
 1. User submits emergency.
 2. API Gateway routes request.
