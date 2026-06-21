@@ -88,15 +88,15 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/5_1_Profile.jpeg" width="280"/></td>
-<td><img src="Images/5_2_Profile.jpeg" width="280"/></td>
-<td><img src="Images/5_3_Profile_saved.jpeg" width="280"/></td>
+<td><img src="Images/5_1_Profile.jpeg" width="220"/></td>
+<td><img src="Images/5_2_Profile.jpeg" width="220"/></td>
+<td><img src="Images/5_3_Profile_saved.jpeg" width="220"/></td>
 </tr>
 
 <tr>
-<td><img src="Images/5_4_Profile_view.jpeg" width="280"/></td>
-<td><img src="Images/5_5_Profile_view.jpeg" width="280"/></td>
-<td><img src="Images/5_7_Profile_edit.jpeg" width="280"/></td>
+<td><img src="Images/5_4_Profile_view.jpeg" width="220"/></td>
+<td><img src="Images/5_5_Profile_view.jpeg" width="220"/></td>
+<td><img src="Images/5_7_Profile_edit.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -136,9 +136,9 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/8_1_Nearby Hospitals.jpeg" width="280"/></td>
-<td><img src="Images/8_2_Nearby Hospitals.jpeg" width="280"/></td>
-<td><img src="Images/8_3_Nearby Hospitals.jpeg" width="280"/></td>
+<td><img src="Images/8_1_Nearby Hospitals.jpeg" width="220"/></td>
+<td><img src="Images/8_2_Nearby Hospitals.jpeg" width="220"/></td>
+<td><img src="Images/8_3_Nearby Hospitals.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -148,9 +148,9 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/9_1_AI assessment.jpeg" width="280"/></td>
-<td><img src="Images/9_2_AI assessment.jpeg" width="280"/></td>
-<td><img src="Images/9_2_AI Ranking.jpeg" width="280"/></td>
+<td><img src="Images/9_1_AI assessment.jpeg" width="220"/></td>
+<td><img src="Images/9_2_AI assessment.jpeg" width="220"/></td>
+<td><img src="Images/9_2_AI Ranking.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -160,8 +160,8 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/10_select_hospital.jpeg" width="280"/></td>
-<td><img src="Images/11_selected_hospital.jpeg" width="280"/></td>
+<td><img src="Images/10_select_hospital.jpeg" width="220"/></td>
+<td><img src="Images/11_selected_hospital.jpeg" width="220"/></td>
 </tr>
 </table>
 
