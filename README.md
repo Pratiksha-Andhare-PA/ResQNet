@@ -854,7 +854,7 @@ resqnet/
 ├── docs/
 │   ├── diagrams/
 │   │   ├── ai-triage-flow.png
-│   │   ├── emergency-sequence.png
+│   │   ├── emergency-creation-sequence.png
 │   │   ├── hospital-ranking-engine.png
 │   │   ├── hospital-ranking-sequence.png
 │   │   ├── system-architecture.png
