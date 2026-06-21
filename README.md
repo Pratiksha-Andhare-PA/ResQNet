@@ -404,7 +404,7 @@ Amazon EventBridge
 <a id="ai-triage-engine"></a>
 # 🤖 AI Triage Engine
 
-![AI Triage](diagrams/ai-triage-flow.png)
+<img src="diagrams/ai-triage-flow.png" width="600">
 
 ## Pipeline
 
