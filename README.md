@@ -160,8 +160,8 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/10_select_hospital.jpeg" width="320"/></td>
-<td><img src="Images/11_selected_hospital.jpeg" width="320"/></td>
+<td><img src="Images/10_select_hospital.jpeg" width="280"/></td>
+<td><img src="Images/11_selected_hospital.jpeg" width="280"/></td>
 </tr>
 </table>
 
