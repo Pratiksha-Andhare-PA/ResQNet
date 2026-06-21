@@ -75,10 +75,10 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/1_splash_screen.jpeg" width="220"/></td>
-<td><img src="Images/2_Login.jpeg" width="220"/></td>
-<td><img src="Images/3_OTP.jpeg" width="220"/></td>
-<td><img src="Images/4_SOS.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/1_splash_screen.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/2_Login.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/3_OTP.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/4_SOS.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -88,15 +88,15 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/5_1_Profile.jpeg" width="220"/></td>
-<td><img src="Images/5_2_Profile.jpeg" width="220"/></td>
-<td><img src="Images/5_3_Profile_saved.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/5_1_Profile.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/5_2_Profile.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/5_3_Profile_saved.jpeg" width="220"/></td>
 </tr>
 
 <tr>
-<td><img src="Images/5_4_Profile_view.jpeg" width="220"/></td>
-<td><img src="Images/5_5_Profile_view.jpeg" width="220"/></td>
-<td><img src="Images/5_7_Profile_edit.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/5_4_Profile_view.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/5_5_Profile_view.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/5_7_Profile_edit.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -106,10 +106,10 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/6_1_Location.jpeg" width="220"/></td>
-<td><img src="Images/6_2_search_location.jpeg" width="220"/></td>
-<td><img src="Images/6_3_select_location.jpeg" width="220"/></td>
-<td><img src="Images/6_4_confirm_location.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/6_1_Location.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/6_2_search_location.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/6_3_select_location.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/6_4_confirm_location.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -119,14 +119,14 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/7_1_emergency_form.jpeg" width="220"/></td>
-<td><img src="Images/7_2_emergency_form.jpeg" width="220"/></td>
-<td><img src="Images/7_3_Age.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/7_1_emergency_form.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/7_2_emergency_form.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/7_3_Age.jpeg" width="220"/></td>
 </tr>
 
 <tr>
-<td><img src="Images/7_4_Ambulance.jpeg" width="220"/></td>
-<td><img src="Images/7_5_filled form.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/7_4_Ambulance.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/7_5_filled form.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -136,9 +136,9 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/8_1_Nearby Hospitals.jpeg" width="220"/></td>
-<td><img src="Images/8_2_Nearby Hospitals.jpeg" width="220"/></td>
-<td><img src="Images/8_3_Nearby Hospitals.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/8_1_Nearby Hospitals.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/8_2_Nearby Hospitals.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/8_3_Nearby Hospitals.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -148,9 +148,9 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/9_1_AI assessment.jpeg" width="220"/></td>
-<td><img src="Images/9_2_AI assessment.jpeg" width="220"/></td>
-<td><img src="Images/9_2_AI Ranking.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/9_1_AI assessment.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/9_2_AI assessment.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/9_2_AI Ranking.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -160,8 +160,8 @@ The following screenshots showcase the complete user journey through **ResQNet**
 
 <table>
 <tr>
-<td><img src="Images/10_select_hospital.jpeg" width="220"/></td>
-<td><img src="Images/11_selected_hospital.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/10_select_hospital.jpeg" width="220"/></td>
+<td><img src="docs/UI_screens/11_selected_hospital.jpeg" width="220"/></td>
 </tr>
 </table>
 
@@ -237,7 +237,7 @@ The following screenshots showcase the complete user journey through **ResQNet**
 <a id="system-architecture"></a>
 # 🏗️ System Architecture
 
-![System Architecture](diagrams/system-architecture.png)
+![System Architecture](docs/diagrams/system-architecture.png)
 
 ## Architecture Overview
 
@@ -280,7 +280,7 @@ Emergency requests are persisted immediately and AI triage executes asynchronous
 <a id="complete-user-journey"></a>
 # 👤 Complete User Journey
 
-<img src="diagrams/user-journey.png" width="600">
+<img src="docs/diagrams/user-journey.png" width="600">
 
 1. User authenticates using Cognito.
 2. User selects current or manual location.
@@ -381,7 +381,7 @@ Amazon EventBridge
 <a id="emergency-creation-flow"></a>
 # 🚨 Emergency Creation Flow
 
-![Emergency Sequence](diagrams/emergency-creation-sequence.png)
+![Emergency Sequence](docs/diagrams/emergency-creation-sequence.png)
 
 1. User submits emergency.
 2. API Gateway routes request.
@@ -404,7 +404,7 @@ Amazon EventBridge
 <a id="ai-triage-engine"></a>
 # 🤖 AI Triage Engine
 
-<img src="diagrams/ai-triage-flow.png" width="550">
+<img src="docs/diagrams/ai-triage-flow.png" width="550">
 
 ## Pipeline
 
@@ -433,9 +433,9 @@ Amazon EventBridge
 <a id="hospital-ranking-engine"></a>
 # 🏥 Hospital Ranking Engine
 
-![Hospital Ranking](diagrams/hospital-ranking-engine.png)
+![Hospital Ranking](docs/diagrams/hospital-ranking-engine.png)
 
-![Ranking Sequence](diagrams/hospital-ranking-sequence.png)
+![Ranking Sequence](docs/diagrams/hospital-ranking-sequence.png)
 
 Hospital recommendations consider:
 
