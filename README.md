@@ -237,7 +237,7 @@ The following screenshots showcase the complete user journey through **ResQNet**
 <a id="system-architecture"></a>
 # 🏗️ System Architecture
 
-![System Architecture](docs/diagrams/system-architecture.png)
+![System Architecture](diagrams/system-architecture.png)
 
 ## Architecture Overview
 
@@ -280,7 +280,7 @@ Emergency requests are persisted immediately and AI triage executes asynchronous
 <a id="complete-user-journey"></a>
 # 👤 Complete User Journey
 
-![User Journey](docs/diagrams/user-journey.png)
+![User Journey](diagrams/user-journey.png)
 
 1. User authenticates using Cognito.
 2. User selects current or manual location.
@@ -381,7 +381,7 @@ Amazon EventBridge
 <a id="emergency-creation-flow"></a>
 # 🚨 Emergency Creation Flow
 
-![Emergency Sequence](docs/diagrams/emergency-creation-sequence.png)
+![Emergency Sequence](diagrams/emergency-creation-sequence.png)
 
 1. User submits emergency.
 2. API Gateway routes request.
@@ -404,7 +404,7 @@ Amazon EventBridge
 <a id="ai-triage-engine"></a>
 # 🤖 AI Triage Engine
 
-![AI Triage](docs/diagrams/ai-triage-flow.png)
+![AI Triage](diagrams/ai-triage-flow.png)
 
 ## Pipeline
 
@@ -433,9 +433,9 @@ Amazon EventBridge
 <a id="hospital-ranking-engine"></a>
 # 🏥 Hospital Ranking Engine
 
-![Hospital Ranking](docs/diagrams/hospital-ranking-engine.png)
+![Hospital Ranking](diagrams/hospital-ranking-engine.png)
 
-![Ranking Sequence](docs/diagrams/hospital-ranking-sequence.png)
+![Ranking Sequence](diagrams/hospital-ranking-sequence.png)
 
 Hospital recommendations consider:
 
