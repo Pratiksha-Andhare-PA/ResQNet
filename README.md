@@ -280,7 +280,7 @@ Emergency requests are persisted immediately and AI triage executes asynchronous
 <a id="complete-user-journey"></a>
 # 👤 Complete User Journey
 
-![User Journey](diagrams/user-journey.png)
+<img src="diagrams/user-journey.png" width="600">
 
 1. User authenticates using Cognito.
 2. User selects current or manual location.
@@ -404,7 +404,7 @@ Amazon EventBridge
 <a id="ai-triage-engine"></a>
 # 🤖 AI Triage Engine
 
-<img src="diagrams/ai-triage-flow.png" width="600">
+<img src="diagrams/ai-triage-flow.png" width="550">
 
 ## Pipeline
 
