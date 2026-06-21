@@ -841,7 +841,7 @@ ResQNet demonstrates several core distributed systems principles:
 # 📂 Repository Structure
 
 ```text
-resqnet/
+ResQNet/
 │
 ├── backend/
 │   ├── emergency-service/              # Emergency creation service
