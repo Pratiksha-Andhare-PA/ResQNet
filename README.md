@@ -686,35 +686,94 @@ Metric Filters enable operational dashboards and alerting pipelines.
 ---
 
 <a id="cloudwatch-dashboards"></a>
+
 # 📊 CloudWatch Dashboards
 
-| Dashboard           | Screenshot                                       |
-| ------------------- | ------------------------------------------------ |
-| System Dashboard    | ![](docs/aws/cloudwatch-dashboard-system.png)    |
-| AI Dashboard        | ![](docs/aws/cloudwatch-dashboard-ai.png)        |
-| Business Dashboard  | ![](docs/aws/cloudwatch-dashboard-business.png)  |
-| Executive Dashboard | ![](docs/aws/cloudwatch-dashboard-executive.png) |
+ResQNet uses Amazon CloudWatch dashboards to monitor emergency processing, AI triage performance, Lambda health, scalability, and operational KPIs in real time.
 
-### System Dashboard
+---
 
-Monitors Lambda invocations, errors, throttles, and execution duration.
+## 🚑 Emergency Lifecycle Monitoring
 
-### AI Dashboard
+Tracks end-to-end emergency flow from creation through AI processing and hospital assignment.
 
-Tracks inference latency, AI failures, severity distribution, and processing volume.
+<p>
+  <img src="docs/aws-monitoring/emergency-lifecycle-pipeline.png" width="48%">
+  <img src="docs/aws-monitoring/lambda-request-volume.png" width="48%">
+</p>
 
-### Business Dashboard
+**Key Metrics**
+- Emergency creation rate
+- Event processing throughput
+- Lambda invocation volume
+- End-to-end workflow health
 
-Visualizes:
+---
 
-* Emergencies created
-* AI processed
-* Hospital selections
-* Assignment success rates
+## 🤖 AI Triage Performance
 
-### Executive Dashboard
+Monitors AI processing latency, queue delays, and overall inference performance.
 
-Aggregates platform KPIs including AI success rate, emergency throughput, and hospital assignment metrics.
+<p>
+  <img src="docs/aws-monitoring/current-ai-latency.png" width="48%">
+  <img src="docs/aws-monitoring/ai-latency-trend.png" width="48%">
+</p>
+
+<p>
+  <img src="docs/aws-monitoring/ai-queue-delay.png" width="48%">
+  <img src="docs/aws-monitoring/avg-processing-time.png" width="48%">
+</p>
+
+**Key Metrics**
+- Current AI inference latency
+- Latency trends over time
+- Queue waiting duration
+- Average emergency processing time
+
+---
+
+## ⚡ Lambda Performance & Optimization
+
+Compares execution times across services and identifies performance bottlenecks.
+
+<p>
+  <img src="docs/aws-monitoring/lambda-response-time-comparison1.png" width="48%">
+  <img src="docs/aws-monitoring/lambda-response-time-comparison2.png" width="48%">
+</p>
+
+**Key Metrics**
+- Function execution duration
+- Service-to-service comparison
+- Performance bottlenecks
+- Optimization opportunities
+
+---
+
+## 📈 Scalability & Reliability
+
+Tracks platform capacity, concurrency usage, and throttling behavior under load.
+
+<p>
+  <img src="docs/aws-monitoring/concurrency-usage.png" width="48%">
+  <img src="docs/aws-monitoring/lambda-throttling.png" width="48%">
+</p>
+
+**Key Metrics**
+- Concurrent Lambda executions
+- Capacity utilization
+- Throttle events
+- System reliability
+
+---
+
+### Dashboard Coverage
+
+| Dashboard Area | Purpose |
+|---------------|---------|
+| Emergency Lifecycle | Tracks emergency flow from creation to hospital assignment |
+| AI Performance | Measures inference latency, queue delays, and processing efficiency |
+| Lambda Performance | Compares execution times and service responsiveness |
+| Scalability & Reliability | Monitors concurrency, throttling, and platform health |
 
 ---
 
@@ -860,9 +919,8 @@ ResQNet/
 │   │   ├── system-architecture.png
 │   │   └── user-journey.png
 │   │
-│   └── screenshots/
-│       ├── aws-monitoring/
-│       └── UI_screens/
+│   ├── aws-monitoring/
+│   └── UI_screens/
 │
 ├── frontend/
 │   └── resq_net/                       # Flutter mobile application
