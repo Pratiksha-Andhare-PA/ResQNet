@@ -782,7 +782,8 @@ Tracks platform capacity, concurrency usage, and throttling behavior under load.
 
 ![](docs/aws/cloudwatch-alarms.png)
 <img src="docs/aws-monitoring/alarms.png" width="800">
-<img src="docs/aws-monitoring/alarm_notification.png" width="800">
+
+<img src="docs/aws-monitoring/alarm_notification.png" width="550">
 
 Configured alarms include:
 
