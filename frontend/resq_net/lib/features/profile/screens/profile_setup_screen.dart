@@ -126,7 +126,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
               _buildDropdown(
                 label: "Gender",
                 value: gender,
-                items: ["Male", "Female", "Other"],
+                items: ["male", "female", "other"],
                 onChanged: (value) {
                   setState(() => gender = value);
                 },
@@ -318,15 +318,29 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
 
     final body = {
       "name": nameController.text,
-      "phone": phoneController.text,
       "age": ageController.text.isEmpty ? null : int.parse(ageController.text),
-      "gender": gender,
+
+      "gender": gender?.toLowerCase(),
+
       "blood_group": bloodGroup,
-      "allergies": allergiesController.text,
-      "medical_conditions": conditionsController.text,
-      "medications": medicationsController.text,
+
+      "allergies": allergiesController.text.trim().isEmpty
+          ? []
+          : allergiesController.text.split(',').map((e) => e.trim()).toList(),
+
+      "medical_conditions": conditionsController.text.trim().isEmpty
+          ? []
+          : conditionsController.text.split(',').map((e) => e.trim()).toList(),
+
+      "medications": medicationsController.text.trim().isEmpty
+          ? []
+          : medicationsController.text.split(',').map((e) => e.trim()).toList(),
+
       "emergency_contacts": contacts,
     };
+
+    print("PROFILE BODY:");
+    print(body);
 
     try {
       await ProfileService().saveProfile(body);

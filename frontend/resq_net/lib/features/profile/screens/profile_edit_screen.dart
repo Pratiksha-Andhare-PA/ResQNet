@@ -28,6 +28,16 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
 
   bool isLoading = false;
 
+  String listToText(dynamic value) {
+    if (value == null) return "";
+
+    if (value is List) {
+      return value.join(", ");
+    }
+
+    return value.toString();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -43,15 +53,15 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
     bloodGroup = profile["blood_group"];
 
     allergiesController = TextEditingController(
-      text: profile["allergies"] ?? "",
+      text: listToText(profile["allergies"]),
     );
 
     conditionsController = TextEditingController(
-      text: profile["medical_conditions"] ?? "",
+      text: listToText(profile["medical_conditions"]),
     );
 
     medicationsController = TextEditingController(
-      text: profile["medications"] ?? "",
+      text: listToText(profile["medications"]),
     );
 
     /// ✅ LOAD EXISTING CONTACTS
@@ -138,7 +148,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
 
               const SizedBox(height: 12),
 
-              _dropdown("Gender", gender, ["Male", "Female", "Other"], (v) {
+              _dropdown("Gender", gender, ["male", "female", "other"], (v) {
                 setState(() => gender = v);
               }),
 
@@ -314,13 +324,28 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
     final body = {
       "name": nameController.text,
       "age": ageController.text.isEmpty ? null : int.parse(ageController.text),
-      "gender": gender,
+
+      "gender": gender?.toLowerCase(),
+
       "blood_group": bloodGroup,
-      "allergies": allergiesController.text,
-      "medical_conditions": conditionsController.text,
-      "medications": medicationsController.text,
+
+      "allergies": allergiesController.text.trim().isEmpty
+          ? []
+          : allergiesController.text.split(',').map((e) => e.trim()).toList(),
+
+      "medical_conditions": conditionsController.text.trim().isEmpty
+          ? []
+          : conditionsController.text.split(',').map((e) => e.trim()).toList(),
+
+      "medications": medicationsController.text.trim().isEmpty
+          ? []
+          : medicationsController.text.split(',').map((e) => e.trim()).toList(),
+
       "emergency_contacts": contacts,
     };
+
+    print("PROFILE BODY:");
+    print(jsonEncode(body));
 
     await ProfileService().saveProfile(body);
 
