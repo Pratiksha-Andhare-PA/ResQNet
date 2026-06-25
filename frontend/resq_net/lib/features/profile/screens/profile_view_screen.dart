@@ -60,6 +60,16 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
         value.toString() != "null";
   }
 
+  String formatList(dynamic value) {
+    if (value == null) return "";
+
+    if (value is List) {
+      return value.join(", ");
+    }
+
+    return value.toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     final contacts = getContacts();
@@ -71,7 +81,10 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
         backgroundColor: const Color(0xFF0E3A5B),
         elevation: 0,
         actions: [
-          IconButton(icon: const Icon(Icons.logout), onPressed: logout),
+          IconButton(
+            icon: const Icon(Icons.logout, color: Colors.red),
+            onPressed: logout,
+          ),
         ],
       ),
 
@@ -112,17 +125,25 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
               const SizedBox(height: 10),
 
               if (hasValue(profile["allergies"]))
-                _tile(Icons.warning, "Allergies", profile["allergies"]),
+                _tile(
+                  Icons.warning,
+                  "Allergies",
+                  formatList(profile["allergies"]),
+                ),
 
               if (hasValue(profile["medical_conditions"]))
                 _tile(
                   Icons.local_hospital,
                   "Conditions",
-                  profile["medical_conditions"],
+                  formatList(profile["medical_conditions"]),
                 ),
 
               if (hasValue(profile["medications"]))
-                _tile(Icons.medication, "Medications", profile["medications"]),
+                _tile(
+                  Icons.medication,
+                  "Medications",
+                  formatList(profile["medications"]),
+                ),
 
               const SizedBox(height: 20),
             ],

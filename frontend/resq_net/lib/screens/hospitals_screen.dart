@@ -160,7 +160,10 @@ class _HospitalsScreenState extends State<HospitalsScreen> {
             Expanded(
               child: Text(
                 "AI assessment is being prepared. You can still select a hospital immediately.",
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF0E3A5B),
+                ),
               ),
             ),
           ],
@@ -244,7 +247,10 @@ class _HospitalsScreenState extends State<HospitalsScreen> {
 
           const SizedBox(height: 4),
 
-          Text(triageData!["possibleCondition"] ?? "Unknown"),
+          Text(
+            triageData!["possibleCondition"] ?? "Unknown",
+            style: const TextStyle(color: Color(0xFF0E3A5B)),
+          ),
 
           const SizedBox(height: 14),
 
@@ -259,7 +265,10 @@ class _HospitalsScreenState extends State<HospitalsScreen> {
 
           const SizedBox(height: 4),
 
-          Text(triageData!["recommendedAction"] ?? ""),
+          Text(
+            triageData!["recommendedAction"] ?? "",
+            style: const TextStyle(color: Color(0xFF0E3A5B)),
+          ),
         ],
       ),
     );
@@ -381,6 +390,7 @@ class _HospitalsScreenState extends State<HospitalsScreen> {
                           title: const Text("Confirm Selection"),
                           content: Text(
                             "Proceed with ${hospital["name"] ?? "this hospital"}?",
+                            style: const TextStyle(color: Color(0xFF0E3A5B)),
                           ),
                           actions: [
                             TextButton(

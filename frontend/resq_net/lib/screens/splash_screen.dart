@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
@@ -12,18 +11,48 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  late Animation<double> _scaleAnimation;
+
+  late Animation<double> _fadeAnimation;
+
   @override
   void initState() {
     super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 5000),
+    );
+
+    _scaleAnimation = Tween<double>(
+      begin: 0.3,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.elasticOut));
+
+    _fadeAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
+
+    _controller.forward();
+
     checkLogin();
   }
 
   Future<void> checkLogin() async {
-    await Future.delayed(const Duration(seconds: 4));
-
     try {
-      final session = await Amplify.Auth.fetchAuthSession();
+      // Start auth check immediately
+      final sessionFuture = Amplify.Auth.fetchAuthSession();
+
+      // Animation/splash minimum duration
+      await Future.delayed(const Duration(seconds: 5));
+
+      // Get auth result (may already be completed)
+      final session = await sessionFuture;
 
       if (!mounted) return;
 
@@ -34,9 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (_) => SOSScreen(token: idToken), // ✅ PASS TOKEN
-          ),
+          MaterialPageRoute(builder: (_) => SOSScreen(token: idToken)),
         );
       } else {
         Navigator.pushReplacement(
@@ -45,6 +72,8 @@ class _SplashScreenState extends State<SplashScreen> {
         );
       }
     } catch (e) {
+      if (!mounted) return;
+
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const LoginScreen()),
@@ -53,32 +82,62 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0E3A5B),
 
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: FadeTransition(
+          opacity: _fadeAnimation,
+          child: ScaleTransition(
+            scale: _scaleAnimation,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.health_and_safety,
+                    color: Colors.white,
+                    size: 90,
+                  ),
+                ),
 
-          children: [
-            const Icon(Icons.health_and_safety, color: Colors.white, size: 80),
+                const SizedBox(height: 24),
 
-            const SizedBox(height: 20),
+                const Text(
+                  "ResQNet",
+                  style: TextStyle(
+                    fontSize: 34,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.2,
+                  ),
+                ),
 
-            const Text(
-              "ResQNet",
-              style: TextStyle(
-                fontSize: 28,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+                const SizedBox(height: 10),
+
+                Text(
+                  "Emergency Response Network",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white.withOpacity(0.75),
+                    letterSpacing: 0.5,
+                  ),
+                ),
+              ],
             ),
-
-            const SizedBox(height: 20),
-
-            const CircularProgressIndicator(color: Colors.white),
-          ],
+          ),
         ),
       ),
     );
