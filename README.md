@@ -17,6 +17,7 @@
 # 📑 Table of Contents
 
 - [Why ResQNet](#why-this-project-matters)
+- [Demo Video](#demo-video)
 - [Application UI](#application-screenshots)
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
@@ -60,6 +61,22 @@ Key benefits include:
 * 📈 Production-grade monitoring and observability for operational reliability.
 
 The platform demonstrates practical applications of **AWS Serverless**, **Distributed Systems**, **Cloud Architecture**, **AI Integration**, and **Production Engineering Practices**.
+
+---
+
+<a id="demo-video"></a>
+
+# 🎥 Live Application Demo
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/16Pq1i--RRCC7mDuOwK-i0NcJoxO-zE0e/view?usp=sharing">
+    <img src="docs/UI_screens/1_splash_screen.jpeg" width="850">
+  </a>
+</p>
+
+<p align="center">
+<b>▶️ Click the thumbnail to watch the complete ResQNet demonstration.</b>
+</p>
 
 ---
 
