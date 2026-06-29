@@ -70,11 +70,11 @@ The platform demonstrates practical applications of **AWS Serverless**, **Distri
 
 <p align="center">
   <a href="https://drive.google.com/file/d/16Pq1i--RRCC7mDuOwK-i0NcJoxO-zE0e/view?usp=sharing">
-    <img src="docs/UI_screens/1_splash_screen.jpeg" width="850">
+    <img src="docs/UI_screens/1_splash_screen.jpeg" width="220">
   </a>
 </p>
 
-<p align="center">
+<p>
 <b>▶️ Click the thumbnail to watch the complete ResQNet demonstration.</b>
 </p>
 
